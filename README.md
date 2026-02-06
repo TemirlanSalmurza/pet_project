@@ -1,21 +1,30 @@
-# SpaceX  ETL Project
+# SpaceX ETL Pipeline (Pet Project)
 
-Учебный проект для практики Data Engineering с использованием Airflow, Python и PostgreSQL.
+Pet project to practice Data Engineering stack:
+SQL, Python, Airflow, Docker, Postgres.
 
-## Описание
-Проект выполняет ETL (Extract, Transform, Load) данные о запусках SpaceX:
-1. **Extract** — загрузка данных из API SpaceX.
-2. **Transform** — подготовка и очистка данных.
-3. **Load** — сохранение данных в PostgreSQL.
+## Architecture
+API (SpaceX) → ETL (Python) → Postgres → Airflow orchestration
 
-## Стек технологий
-- Python 3.8+
-- Apache Airflow 2.7
+## Tech Stack
+- Python
+- SQL
+- Apache Airflow
+- Docker & Docker Compose
 - PostgreSQL
-- Docker + Docker Compose
 
-## Запуск проекта
-1. Склонировать репозиторий
-2. Поднять контейнеры:
-   ```bash
-   docker-compose up -d pet_project
+## Pipeline Description
+1. Extract data from SpaceX public API
+2. Transform data into staging format
+3. Load data into PostgreSQL
+4. Orchestrate pipeline with Airflow DAG
+
+## Project Structure
+- dags/ – Airflow DAGs
+- scripts/ – ETL logic (extract, transform, load)
+- docker/ – Docker Compose setup
+- sql/ – DDL scripts
+- data/ – local data files (for development)
+
+## Status
+Work in progress 🚧
