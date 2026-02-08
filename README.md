@@ -1,7 +1,7 @@
 # SpaceX ETL Pipeline (Pet Project)
 
 Pet project to practice Data Engineering stack:
-Python, Airflow, Docker, Postgres.
+Python, Airflow, Docker
 
 ## Architecture
 API (SpaceX) → ETL (Python) → Airflow orchestration
