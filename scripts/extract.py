@@ -1,6 +1,12 @@
 import requests 
 import json
+import os
 
+
+
+
+
+def extract_data():
 #API URL 
 LAUNCHES_URL = "https://api.spacexdata.com/v4/launches"
 ROCKETS_URL = "https://api.spacexdata.com/v4/rockets"
@@ -9,6 +15,9 @@ ROCKETS_URL = "https://api.spacexdata.com/v4/rockets"
 #Получаем данные
 launches = requests.get(LAUNCHES_URL).json()
 rockets = requests.get(ROCKETS_URL).json()
+
+
+os.makedirs("data", exist_ok=True)
 
 
 #Сохраняем в JSON

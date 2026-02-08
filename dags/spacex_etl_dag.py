@@ -1,15 +1,26 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-from scripts.extract import extract_data
-from scripts.transform import transform_data
-from scripts.load import load_data
+from datetime import datetime, timedelta
+
+
+def extract_data():
+    print("extracting data")
+
+def transform_data():
+    print("transforming data")
+
+def load_data():
+    print("loading data")
+
 
 with DAG(
     'spacex_etl',
-    start_date=datetime(2026, 2, 6),
-    schedule_interval='@daily',
-    catchup=False
+    
+    start_date=datetime(2024, 1, 1), 
+    schedule='@daily',
+    catchup=False,
+    
+    tags=['spacex', 'etl']
 ) as dag:
 
     t1 = PythonOperator(
@@ -27,5 +38,5 @@ with DAG(
         python_callable=load_data
     )
 
-    # Определяем порядок выполнения задач
+    
     t1 >> t2 >> t3
